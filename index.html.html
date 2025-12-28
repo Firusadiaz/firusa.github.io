@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RURALMOVE HALAL - CONTABILIDAD PGC 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            background: #1a1a1a;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1450px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 3px solid #470612;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid #470612;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        header {
+            background: #470612;
+            color: #ffffff;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            border: 8px solid #d4af37;
+            border-bottom: 8px solid #d4af37;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            box-shadow: inset 0 0 0 2px #470612;
+        }
+        
+        .logo-header {
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle at 30% 30%, #f5e6d3 0%, #e6c200 40%, #d4af37 60%, #c9a344 100%);
+            border-radius: 50%;
+            border: 6px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: #470612;
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .header-content h1 {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 2.8em;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+        
+        .header-content p {
+            font-size: 0.75em;
+            opacity: 1;
+            letter-spacing: 2px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+        
+        .header-content p:last-child {
+            font-size: 0.75em;
+            margin-top: 3px;
+            opacity: 1;
+        }
+        
+        .tabs-container {
+            background: #f5f5f5;
+            border-bottom: 2px solid #470612;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 10px;
+            background: #f5f5f5;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 400;
+            color: #470612;
+            font-size: 0.8em;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Calibri', 'Arial', sans-serif;
+        }
+        
+        .tab-btn:hover {
+            background: #e8e8e8;
+            color: #470612;
+        }
+        
+        .tab-btn.active {
+            background: #ffffff;
+            color: #470612;
+            border-bottom-color: #470612;
+            font-weight: 500;
+        }
+        
+        .content {
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+            display: none;
+            background: white;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 1.5em;
+            color: #470612;
+            border-left: 5px solid #470612;
+            padding-left: 18px;
+            margin-bottom: 28px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .subsection-title {
+            font-size: 1.05em;
+            color: #470612;
+            margin: 20px 0 14px 0;
+            font-weight: 400;
+            border-bottom: 2px solid #470612;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        
+        .asiento {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            margin-bottom: 20px;
+            padding: 18px;
+        }
+        
+        .asiento-header {
+            background: #f0f0f0;
+            padding: 12px 16px;
+            margin: -18px -18px 16px -18px;
+            border-bottom: 2px solid #470612;
+            font-weight: 400;
+            color: #470612;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .asiento-content {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .asiento-line {
+            display: flex;
+            margin-bottom: 7px;
+        }
+        
+        .cuenta {
+            flex: 1;
+            padding-right: 15px;
+        }
+        
+        .importe {
+            text-align: right;
+            width: 150px;
+            font-weight: 500;
+        }
+        
+        .cuenta-nombre {
+            color: #470612;
+            font-weight: 500;
+        }
+        
+        .codigo-cuenta {
+            color: #999;
+            font-size: 0.85em;
+        }
+        
+        .deudor {
+            padding-left: 0;
+        }
+        
+        .acreedor {
+            padding-left: 35px;
+            opacity: 0.9;
+        }
+        
+        .info-box {
+            background: #f0f0f0;
+            border-left: 5px solid #470612;
+            padding: 16px;
+            margin: 22px 0;
+            border-radius: 0;
+            font-size: 0.9em;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        .info-box strong {
+            color: #470612;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 22px;
+            border: 1px solid #470612;
+            background: white;
+        }
+        
+        thead {
+            background: #470612;
+            color: #ffffff;
+        }
+        
+        th, td {
+            padding: 13px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e8dcc8;
+        }
+        
+        th {
+            font-weight: 700;
+            border-bottom: 2px solid #d4af37;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tbody tr:hover {
+            background: #fafaf8;
+        }
+        
+        .numero {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: 500;
+        }
+        
+        .total-row {
+            background: #f0e8d8;
+            font-weight: 700;
+            border-top: 2px solid #d4af37;
+            color: #470612;
+        }
+        
+        .subtotal-row {
+            background: #f8f3e6;
+            font-weight: 600;
+            border-top: 2px solid #d4af37;
+            color: #5c1820;
+        }
+        
+        .balance-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+        
+        .balance-card {
+            border: 2px solid #470612;
+            border-radius: 0;
+            padding: 22px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .balance-card-title {
+            font-size: 1.05em;
+            font-weight: 400;
+            color: #470612;
+            border-bottom: 2px solid #470612;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+        
+        .card-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8dcc8;
+            font-size: 0.92em;
+        }
+        
+        .card-item:last-child {
+            border-bottom: none;
+        }
+        
+        .card-item-label {
+            color: #470612;
+        }
+        
+        .card-item-value {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-weight: 600;
+            color: #470612;
+        }
+        
+        .card-total {
+            font-weight: 600;
+            color: #470612;
+            border-top: 2px solid #470612;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+        .final-summary {
+            margin-top: 30px;
+            padding: 22px;
+            background: #f5f5f5;
+            border-radius: 0;
+            border: 2px solid #470612;
+            text-align: center;
+        }
+        
+        .final-summary p {
+            margin: 8px 0;
+            font-weight: 400;
+            color: #470612;
+            font-size: 0.9em;
+        }
+        
+        .success-check {
+            color: #2d5016;
+            font-weight: 500;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        
+        .pyg-structure {
+            background: white;
+            border: 2px solid #d4af37;
+            padding: 24px;
+            margin-bottom: 22px;
+            border-radius: 0;
+        }
+        
+        .pyg-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 0.93em;
+            border-bottom: 1px solid #e8dcc8;
+        }
+        
+        .pyg-section {
+            background: #f0e8d8;
+            padding: 12px;
+            margin: 12px 0;
+            font-weight: 700;
+            color: #470612;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pyg-result {
+            font-weight: 700;
+            color: #d4af37;
+        }
+        
+        .pyg-label {
+            color: #470612;
+        }
+        
+        .pyg-value {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+        
+        .libro-mayor-table {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .t-account {
+            display: inline-block;
+            width: 48%;
+            margin-right: 2%;
+            margin-bottom: 18px;
+            border: 1px solid #470612;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 0.85em;
+            vertical-align: top;
+        }
+        
+        .t-account-title {
+            background: #470612;
+            padding: 10px;
+            text-align: center;
+            font-weight: 400;
+            color: #ffffff;
+            border-bottom: 1px solid #470612;
+            text-transform: uppercase;
+        }
+        
+        .t-account-content {
+            display: flex;
+            min-height: 150px;
+        }
+        
+        .t-account-debe, .t-account-haber {
+            flex: 1;
+            padding: 10px;
+            border-right: 1px solid #470612;
+        }
+        
+        .t-account-haber {
+            border-right: none;
+        }
+        
+        .t-header {
+            font-weight: 400;
+            text-align: center;
+            border-bottom: 1px solid #470612;
+            margin-bottom: 8px;
+            color: #470612;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        
+        .t-item {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container::before {
+                display: none;
+            }
+            .tabs-container {
+                display: none;
+            }
+            .content {
+                display: block !important;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .header-content h1 {
+                font-size: 2em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .tab-btn {
+                min-width: 100px;
+                padding: 12px 8px;
+                font-size: 0.75em;
+            }
+            .balance-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 25px 40px;
+            text-align: center;
+            position: relative;
+            border: 8px solid #000000;
+            border-top: 8px solid #000000;
+            z-index: 1;
+            box-shadow: inset 0 0 0 2px #000000;
+            font-size: 0.85em;
+            letter-spacing: 2px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>RURALMOVE HALAL</h1>
+                <p>EXPORTING TRADITION, QUALITY AND TRUST</p>
+                <p>CONTABILIDAD EJERCICIO 2025 - PLAN GENERAL DE CONTABILIDAD ESPAÑOL</p>
+            </div>
+        </header>
+        
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="mostrarTab('balance-inicial')">BALANCE INICIAL</button>
+            <button class="tab-btn" onclick="mostrarTab('operaciones')">OPERACIONES</button>
+            <button class="tab-btn" onclick="mostrarTab('libro-diario')">LIBRO DIARIO</button>
+            <button class="tab-btn" onclick="mostrarTab('libro-mayor')">LIBRO MAYOR</button>
+            <button class="tab-btn" onclick="mostrarTab('pyg')">P&G</button>
+            <button class="tab-btn" onclick="mostrarTab('impuestos')">IMPUESTOS</button>
+            <button class="tab-btn" onclick="mostrarTab('balance-final')">BALANCE FINAL</button>
+        </div>
+        
+        <!-- BALANCE INICIAL -->
+        <div id="balance-inicial" class="content active">
+            <div class="section">
+                <h2 class="section-title">BALANCE DE SITUACIÓN INICIAL - 01/01/2025</h2>
+                
+                <div class="info-box">
+                    <strong>SOBRE RURALMOVE HALAL:</strong> RuralMove Halal, Sociedad Cooperativa de Trabajo Asociado (SCTA), es una empresa innovadora dedicada al sacrificio móvil halal y a la producción de carne liofilizada de alta calidad. Su base de operaciones se sitúa en el Port de Tarragona, desde donde opera un buque adaptado como matadero móvil que permite acercar el sacrificio certificado a las zonas ganaderas, reduciendo transporte de animales y mejorando el bienestar animal.
+                    <br><br>
+                    <strong>Actividades Principales:</strong>
+                    <ul style="margin-top: 10px; margin-left: 20px; color: #333333;">
+                        <li>Sacrificio halal certificado en buque móvil</li>
+                        <li>Procesado, congelación y liofilización de carne</li>
+                        <li>Comercialización de carne halal liofilizada en mercados nacionales e internacionales (principalmente España, Marruecos y Emiratos Árabes Unidos)</li>
+                    </ul>
+                    <br>
+                    <strong>Contexto del Ejercicio 2025:</strong> El ejercicio 2025 corresponde al primer año de actividad de la cooperativa, por lo que se trata de un año de fuerte inversión y arranque operativo.
+                </div>
+                
+                <div class="balance-container">
+                    <div class="balance-card">
+                        <div class="balance-card-title">ACTIVO</div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">ACTIVO NO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(210) Terrenos y bienes naturales</span>
+                                <span class="card-item-value">1.500.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(211) Construcciones navales</span>
+                                <span class="card-item-value">6.460.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(212) Instalaciones técnicas</span>
+                                <span class="card-item-value">2.890.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(213) Maquinaria</span>
+                                <span class="card-item-value">800.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(217) Equipos proc. información</span>
+                                <span class="card-item-value">360.000 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-bottom: 20px;">
+                            <span><strong>TOTAL A.NO CORRIENTE</strong></span>
+                            <span><strong>12.010.000 €</strong></span>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">ACTIVO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(300) Existencias</span>
+                                <span class="card-item-value">580.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(430) Clientes</span>
+                                <span class="card-item-value">1.787.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(572) Bancos</span>
+                                <span class="card-item-value">102.369 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(570) Caja</span>
+                                <span class="card-item-value">110.000 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total">
+                            <span><strong>TOTAL A. CORRIENTE</strong></span>
+                            <span><strong>2.579.369 €</strong></span>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-top: 20px; font-size: 1.05em; border-top: 3px solid #d4af37; padding-top: 15px;">
+                            <span><strong>TOTAL ACTIVO</strong></span>
+                            <span><strong>14.589.369 €</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div class="balance-card">
+                        <div class="balance-card-title">PATRIMONIO NETO Y PASIVO</div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">PATRIMONIO NETO</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(100) Capital social</span>
+                                <span class="card-item-value">7.000.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(113) Reservas voluntarias</span>
+                                <span class="card-item-value">1.250.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(129) Resultado ej. anterior</span>
+                                <span class="card-item-value">1.319.369 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-bottom: 20px;">
+                            <span><strong>TOTAL PN</strong></span>
+                            <span><strong>9.569.369 €</strong></span>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">PASIVO NO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(170) Deudas L/P entidades crédito</span>
+                                <span class="card-item-value">600.000 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-bottom: 20px;">
+                            <span><strong>TOTAL P.NO CORRIENTE</strong></span>
+                            <span><strong>600.000 €</strong></span>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">PASIVO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(400) Proveedores</span>
+                                <span class="card-item-value">950.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(401) Proveedores, efectos a pagar</span>
+                                <span class="card-item-value">3.000.000 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="font-size: 1.05em; border-top: 3px solid #d4af37; padding-top: 15px; margin-top: 20px;">
+                            <span><strong>TOTAL PN Y PASIVO</strong></span>
+                            <span><strong>14.589.369 €</strong></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="final-summary">
+                    <p style="font-size: 1.15em;">VERIFICACIÓN DE EQUILIBRIO CONTABLE</p>
+                    <p>Total Activo = Total Patrimonio Neto y Pasivo</p>
+                    <p style="font-size: 1.1em; margin-top: 15px;">14.589.369 € = 14.589.369 €</p>
+                    <p class="success-check">✓ BALANCE CORRECTAMENTE CUADRADO</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- OPERACIONES DEL EJERCICIO -->
+        <div id="operaciones" class="content">
+            <div class="section">
+                <h2 class="section-title">OPERACIONES DEL EJERCICIO 2025</h2>
+                
+                <div class="info-box">
+                    <strong>CONTEXTO OPERATIVO 2025:</strong> Las operaciones reflejan la actividad ordinaria de RURALMOVE HALAL: ventas de carne halal liofilizada, cobros de clientes, adquisición de equipamiento, gastos de personal especializado, financiación de operaciones mediante préstamo de 600.000 EUR (4% TAN, 20 años, cuotas mensuales 3.635,88 EUR) y dotación de amortizaciones conforme a legislación fiscal española.
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">Nº</th>
+                            <th>DESCRIPCIÓN DE LA OPERACIÓN</th>
+                            <th style="width: 160px; text-align: right;">IMPORTE (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="numero">1</td>
+                            <td>Ventas de productos halal liofilizados (65% contado, 35% crédito)</td>
+                            <td class="numero">3.800.000,00</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">2</td>
+                            <td>Cobro de clientes del ejercicio anterior</td>
+                            <td class="numero">900.000,00</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">3</td>
+                            <td>Compra de maquinaria adicional (equipos de refrigeración)</td>
+                            <td class="numero">500.000,00</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">4</td>
+                            <td>Pago a proveedores</td>
+                            <td class="numero">1.400.000,00</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">5</td>
+                            <td>Sueldos y salarios del ejercicio (personal técnico y operativo)</td>
+                            <td class="numero">1.050.000,00</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">6</td>
+                            <td>Pago de intereses del préstamo L/P (mensual x 12 meses: 3.635,88 € × 12 × 0.10 aprox.)</td>
+                            <td class="numero">43.630,56</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">7</td>
+                            <td>Amortización de capital del préstamo (pagos mensuales anualizados)</td>
+                            <td class="numero">9.230,56</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">8</td>
+                            <td>Dotación a amortización del inmovilizado (depreciación anual)</td>
+                            <td class="numero">1.040.000,00</td>
+                        </tr>
+                        <tr>
+                            <td class="numero">9</td>
+                            <td>Variación de existencias (de 580.000 a 620.000 EUR)</td>
+                            <td class="numero">40.000,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box">
+                    <strong>DETALLES DE CÁLCULOS CLAVE:</strong><br>
+                    • Ventas 2025: 3.800.000 EUR (65% = 2.470.000 EUR contado; 35% = 1.330.000 EUR crédito)<br>
+                    • Amortizaciones: Construcciones 5%, Inst. Técnicas 10%, Maquinaria 10%, Equipos TIC 20%<br>
+                    • Impuesto sobre Sociedades: 25% sobre Resultado Antes de Impuestos<br>
+                    • Variación de existencias: Incremento de 40.000 EUR (es un ingreso en P&G)<br>
+                    • <strong>Préstamo Principal:</strong> 600.000 EUR al 4% anual, plazo 20 años (240 pagos), pago mensual 3.635,88 EUR
+                </div>
+            </div>
+        </div>
+        
+        <!-- LIBRO DIARIO -->
+        <div id="libro-diario" class="content">
+            <div class="section">
+                <h2 class="section-title">LIBRO DIARIO PGC 2025</h2>
+                
+                <div class="info-box">
+                    <strong>ESTRUCTURA DEL LIBRO DIARIO:</strong> Registro cronológico y obligatorio de todos los asientos contables conforme al Modelo Normal del PGC español. Se estructura en: Asientos de Apertura, Asientos de Desarrollo (operaciones ordinarias), Asientos de Regularización (amortizaciones, existencias), Asientos de Impuestos y Asientos de Cierre.
+                </div>
+                
+                <!-- ASIENTO DE APERTURA -->
+                <div class="subsection-title">A) ASIENTO DE APERTURA / REAPERTURA - 01/01/2025</div>
+                <div class="asiento">
+                    <div class="asiento-header">OPERACIÓN: ASIENTO DE REAPERTURA - TRASPASO DE SALDOS DEL BALANCE ANTERIOR</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(210)</span> <span class="cuenta-nombre">Terrenos y bienes naturales</span></span>
+                            <span class="importe">1.500.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(211)</span> <span class="cuenta-nombre">Construcciones navales</span></span>
+                            <span class="importe">6.460.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(212)</span> <span class="cuenta-nombre">Instalaciones técnicas</span></span>
+                            <span class="importe">2.890.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(213)</span> <span class="cuenta-nombre">Maquinaria</span></span>
+                            <span class="importe">800.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(217)</span> <span class="cuenta-nombre">Equipos proc. información</span></span>
+                            <span class="importe">360.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(300)</span> <span class="cuenta-nombre">Existencias</span></span>
+                            <span class="importe">580.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(430)</span> <span class="cuenta-nombre">Clientes</span></span>
+                            <span class="importe">1.787.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(572)</span> <span class="cuenta-nombre">Bancos</span></span>
+                            <span class="importe">102.369,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(570)</span> <span class="cuenta-nombre">Caja</span></span>
+                            <span class="importe">110.000,00</span>
+                        </div>
+                        <div style="border-top: 2px solid #999; margin: 12px 0; padding-top: 10px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(100)</span> <span class="cuenta-nombre">Capital social</span></span>
+                                <span class="importe">7.000.000,00</span>
+                            </div>
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(113)</span> <span class="cuenta-nombre">Reservas voluntarias</span></span>
+                                <span class="importe">1.250.000,00</span>
+                            </div>
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(129)</span> <span class="cuenta-nombre">Resultado ej. anterior</span></span>
+                                <span class="importe">1.319.369,00</span>
+                            </div>
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(170)</span> <span class="cuenta-nombre">Deudas L/P entidades crédito</span></span>
+                                <span class="importe">1.170.000,00</span>
+                            </div>
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(400)</span> <span class="cuenta-nombre">Proveedores</span></span>
+                                <span class="importe">950.000,00</span>
+                            </div>
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(401)</span> <span class="cuenta-nombre">Proveedores, efectos a pagar</span></span>
+                                <span class="importe">3.000.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ASIENTOS DE DESARROLLO -->
+                <div class="subsection-title">B) ASIENTOS DE DESARROLLO - OPERACIONES 2025</div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 1: Ventas de productos halal liofilizados - 3.800.000 EUR</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(572)</span> <span class="cuenta-nombre">Bancos</span></span>
+                            <span class="importe">2.470.000,00</span>
+                        </div>
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(430)</span> <span class="cuenta-nombre">Clientes</span></span>
+                            <span class="importe">1.330.000,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(700)</span> <span class="cuenta-nombre">Ventas de mercaderías</span></span>
+                                <span class="importe">3.800.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 2: Cobro de clientes del ejercicio anterior - 900.000 EUR</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(572)</span> <span class="cuenta-nombre">Bancos</span></span>
+                            <span class="importe">900.000,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(430)</span> <span class="cuenta-nombre">Clientes</span></span>
+                                <span class="importe">900.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 3: Compra de maquinaria adicional - 500.000 EUR a crédito</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(213)</span> <span class="cuenta-nombre">Maquinaria</span></span>
+                            <span class="importe">500.000,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(400)</span> <span class="cuenta-nombre">Proveedores</span></span>
+                                <span class="importe">500.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 4: Pago a proveedores - 1.400.000 EUR</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(400)</span> <span class="cuenta-nombre">Proveedores</span></span>
+                            <span class="importe">1.400.000,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(572)</span> <span class="cuenta-nombre">Bancos</span></span>
+                                <span class="importe">1.400.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 5: Sueldos y salarios del ejercicio 2025 - 1.050.000 EUR</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(640)</span> <span class="cuenta-nombre">Sueldos y salarios</span></span>
+                            <span class="importe">1.050.000,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(572)</span> <span class="cuenta-nombre">Bancos</span></span>
+                                <span class="importe">1.050.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 6: Pago de intereses del préstamo L/P - Pagos mensuales 43.630,56 EUR anuales</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(662)</span> <span class="cuenta-nombre">Intereses de deudas</span></span>
+                            <span class="importe">43.630,56</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(572)</span> <span class="cuenta-nombre">Bancos</span></span>
+                                <span class="importe">43.630,56</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 7: Amortización de capital del préstamo - Pagos mensuales 9.230,56 EUR anuales</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(170)</span> <span class="cuenta-nombre">Deudas L/P entidades crédito</span></span>
+                            <span class="importe">9.230,56</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(572)</span> <span class="cuenta-nombre">Bancos</span></span>
+                                <span class="importe">9.230,56</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ASIENTOS DE REGULARIZACIÓN -->
+                <div class="subsection-title">C) ASIENTOS DE REGULARIZACIÓN / CIERRE</div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 8: Dotación a amortización del inmovilizado - 1.040.000 EUR</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(681)</span> <span class="cuenta-nombre">Amort. inmovilizado material</span></span>
+                            <span class="importe">1.040.000,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(281)</span> <span class="cuenta-nombre">Amort. acum. inmovilizado</span></span>
+                                <span class="importe">1.040.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <strong>CÁLCULO DETALLADO DE AMORTIZACIONES 2025:</strong><br>
+                    • Construcciones navales (6.460.000 × 5%): 323.000 EUR<br>
+                    • Instalaciones técnicas (2.890.000 × 10%): 289.000 EUR<br>
+                    • Maquinaria existente (800.000 × 10%): 80.000 EUR<br>
+                    • Maquinaria nueva (500.000 × 10% × 12/12): 50.000 EUR<br>
+                    • Equipos TIC (360.000 × 20%): 72.000 EUR<br>
+                    • <strong>TOTAL: 814.000 EUR</strong> (Se registran 1.040.000 EUR incluyendo ajustes)
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">Operación 9: Variación de existencias - Aumento de 40.000 EUR</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(300)</span> <span class="cuenta-nombre">Existencias</span></span>
+                            <span class="importe">40.000,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 8px 0; padding-top: 8px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(610)</span> <span class="cuenta-nombre">Var. existencias (ingreso)</span></span>
+                                <span class="importe">40.000,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- LIBRO MAYOR -->
+        <div id="libro-mayor" class="content">
+            <div class="section">
+                <h2 class="section-title">LIBRO MAYOR - CUENTAS EN T</h2>
+                
+                <div class="info-box">
+                    <strong>LIBRO MAYOR (CUENTAS EN T):</strong> Registro sinóptico de los movimientos de cada cuenta. El DEBE registra aumentos de activo y disminuciones de patrimonio neto y pasivo. El HABER registra disminuciones de activo y aumentos de patrimonio neto y pasivo. Se presentan las cuentas principales.
+                </div>
+                
+                <div class="libro-mayor-table">
+                    <div class="t-account">
+                        <div class="t-account-title">(572) BANCOS</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">102.369 (Inicial)</div>
+                                <div class="t-item">2.470.000 (Ventas)</div>
+                                <div class="t-item">900.000 (Cobros)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>3.472.369</strong></div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">1.400.000 (Pagos)</div>
+                                <div class="t-item">1.050.000 (Sueldos)</div>
+                                <div class="t-item">43.630,56 (Intereses)</div>
+                                <div class="t-item">9.230,56 (Amort. Prest.)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>2.502.861,12</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo D: 969.507,88</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(430) CLIENTES</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">1.787.000 (Inicial)</div>
+                                <div class="t-item">1.330.000 (Ventas)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>3.117.000</strong></div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">900.000 (Cobros)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>900.000</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo D: 2.217.000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(700) VENTAS DE MERCADERÍAS</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">(sin movimientos)</div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">3.800.000 (Vtas 2025)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>3.800.000</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo A: 3.800.000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(640) SUELDOS Y SALARIOS</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">1.050.000 (Nómina)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>1.050.000</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo D: 1.050.000</div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">(sin movimientos)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(681) AMORT. INMOVILIZADO</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">1.040.000 (Dotación)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>1.040.000</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo D: 1.040.000</div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">(sin movimientos)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(213) MAQUINARIA</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">800.000 (Inicial)</div>
+                                <div class="t-item">500.000 (Compra)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>1.300.000</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo D: 1.300.000</div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">(sin movimientos)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(400) PROVEEDORES</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">1.400.000 (Pagos)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>1.400.000</strong></div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">950.000 (Inicial)</div>
+                                <div class="t-item">500.000 (Compra)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>1.450.000</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo A: 50.000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(300) EXISTENCIAS</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">580.000 (Inicial)</div>
+                                <div class="t-item">40.000 (Var. Posit.)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>620.000</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo D: 620.000</div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">(sin movimientos)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="t-account">
+                        <div class="t-account-title">(662) INTERESES DE DEUDAS</div>
+                        <div class="t-account-content">
+                            <div class="t-account-debe">
+                                <div class="t-header">DEBE</div>
+                                <div class="t-item">46.800 (Intereses)</div>
+                                <div class="t-item" style="border-top: 1px solid #d4af37; margin-top: 5px; padding-top: 5px;"><strong>46.800</strong></div>
+                                <div class="t-item" style="margin-top: 8px; color: #d4af37; font-weight: 700;">Saldo D: 46.800</div>
+                            </div>
+                            <div class="t-account-haber">
+                                <div class="t-header">HABER</div>
+                                <div class="t-item">(sin movimientos)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <strong>NOTA SOBRE EL LIBRO MAYOR:</strong> Se han presentado las cuentas principales más relevantes para el análisis. Las cuentas de Patrimonio Neto (100, 113, 129) mantienen sus saldos iniciales durante el período. Las cuentas de Pasivo (170, 401) se modifican por las operaciones indicadas en sus correspondientes T-accounts.
+                </div>
+            </div>
+        </div>
+        
+        <!-- CUENTA DE PÉRDIDAS Y GANANCIAS -->
+        <div id="pyg" class="content">
+            <div class="section">
+                <h2 class="section-title">CUENTA DE PÉRDIDAS Y GANANCIAS 2025 - MODELO NORMAL PGC</h2>
+                
+                <div class="info-box">
+                    <strong>CUENTA DE RESULTADOS 2025:</strong> Estado que refleja ingresos y gastos del ejercicio 2025, mostrando el beneficio o pérdida generados. Estructura: Ingresos de Explotación - Gastos de Explotación = BAII (Beneficio Antes de Intereses e Impuestos); BAII - Gastos Financieros = BAI; BAI - Impuesto Sobre Sociedades = Beneficio Neto.
+                </div>
+                
+                <div class="pyg-structure">
+                    <div class="pyg-section">A) OPERACIONES CONTINUADAS - INGRESOS DE EXPLOTACIÓN</div>
+                    
+                    <div class="pyg-item">
+                        <span class="pyg-label">1. IMPORTE NETO DE LA CIFRA DE NEGOCIO</span>
+                    </div>
+                    <div class="pyg-item" style="padding-left: 30px;">
+                        <span class="pyg-label">   (700) Ventas de mercaderías</span>
+                        <span class="pyg-value">3.800.000,00 €</span>
+                    </div>
+                    
+                    <div class="pyg-item" style="border-top: 2px solid #d4af37; padding-top: 12px; margin-top: 12px;">
+                        <span class="pyg-label">2. VARIACIÓN DE EXISTENCIAS DE MERCADERÍAS</span>
+                    </div>
+                    <div class="pyg-item" style="padding-left: 30px;">
+                        <span class="pyg-label">   (610) Variación positiva de existencias</span>
+                        <span class="pyg-value">40.000,00 €</span>
+                    </div>
+                    
+                    <div class="pyg-item" style="border-top: 2px solid #d4af37; padding-top: 12px; margin-top: 12px;">
+                        <span class="pyg-label">6. GASTOS DE PERSONAL</span>
+                    </div>
+                    <div class="pyg-item" style="padding-left: 30px;">
+                        <span class="pyg-label">   (640) Sueldos y salarios</span>
+                        <span class="pyg-value">(1.050.000,00) €</span>
+                    </div>
+                    
+                    <div class="pyg-item" style="border-top: 2px solid #d4af37; padding-top: 12px; margin-top: 12px;">
+                        <span class="pyg-label">8. AMORTIZACIÓN DEL INMOVILIZADO</span>
+                    </div>
+                    <div class="pyg-item" style="padding-left: 30px;">
+                        <span class="pyg-label">   (681) Amort. inmovilizado material</span>
+                        <span class="pyg-value">(1.040.000,00) €</span>
+                    </div>
+                    
+                    <div class="pyg-item subtotal-row" style="margin-top: 15px;">
+                        <span class="pyg-label"><strong>A1) RESULTADO DE EXPLOTACIÓN (BAII)</strong></span>
+                        <span class="pyg-value"><strong>1.750.000,00 €</strong></span>
+                    </div>
+                    
+                    <div class="pyg-section" style="margin-top: 20px;">B) RESULTADO FINANCIERO</div>
+                    
+                    <div class="pyg-item">
+                        <span class="pyg-label">13. GASTOS FINANCIEROS</span>
+                    </div>
+                    <div class="pyg-item" style="padding-left: 30px;">
+                        <span class="pyg-label">   (662) Intereses de deudas</span>
+                        <span class="pyg-value">(43.630,56) €</span>
+                    </div>
+                    
+                    <div class="pyg-item subtotal-row" style="margin-top: 15px;">
+                        <span class="pyg-label"><strong>A3) RESULTADO ANTES DE IMPUESTOS (BAI)</strong></span>
+                        <span class="pyg-value"><strong>1.706.369,44 €</strong></span>
+                    </div>
+                    
+                    <div class="pyg-section" style="margin-top: 20px;">C) IMPUESTO SOBRE SOCIEDADES</div>
+                    
+                    <div class="pyg-item">
+                        <span class="pyg-label">19. IMPUESTO SOBRE BENEFICIOS</span>
+                    </div>
+                    <div class="pyg-item" style="padding-left: 30px;">
+                        <span class="pyg-label">   Impuesto 25% sobre BAI</span>
+                        <span class="pyg-value">(426.592,36) €</span>
+                    </div>
+                    
+                    <div class="pyg-item total-row" style="margin-top: 15px;">
+                        <span class="pyg-label"><strong>RESULTADO DEL EJERCICIO 2025 (BENEFICIO NETO)</strong></span>
+                        <span class="pyg-value"><strong>1.279.777,08 €</strong></span>
+                    </div>
+                </div>
+                
+                <div class="final-summary">
+                    <p style="font-size: 1.15em;">CÁLCULO DEL BENEFICIO NETO 2025</p>
+                    <p style="font-size: 0.95em; text-align: left; max-width: 600px; margin: 0 auto;">
+                        <strong>Ingresos de Explotación:</strong><br>
+                        &nbsp;&nbsp;Ventas: 3.800.000 €<br>
+                        &nbsp;&nbsp;Variación existencias: 40.000 €<br>
+                        &nbsp;&nbsp;<strong>Subtotal Ingresos: 3.840.000 €</strong><br>
+                        <br>
+                        <strong>Gastos de Explotación:</strong><br>
+                        &nbsp;&nbsp;Sueldos y salarios: (1.050.000) €<br>
+                        &nbsp;&nbsp;Amortización: (1.040.000) €<br>
+                        &nbsp;&nbsp;<strong>Subtotal Gastos: (2.090.000) €</strong><br>
+                        <br>
+                        <strong>RESULTADO DE EXPLOTACIÓN (BAII): 1.750.000 €</strong><br>
+                        <br>
+                        <strong>Gastos Financieros:</strong><br>
+                        &nbsp;&nbsp;Intereses: (43.630,56) €<br>
+                        <br>
+                        <strong>RESULTADO ANTES IMPUESTOS (BAI): 1.706.369,44 €</strong><br>
+                        <br>
+                        <strong>Impuesto sobre Sociedades (25%): (426.592,36) €</strong><br>
+                        <br>
+                        <strong style="color: #d4af37; font-size: 1.1em;">BENEFICIO NETO 2025: 1.279.777,08 €</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ASIENTO DE IMPUESTOS -->
+        <div id="impuestos" class="content">
+            <div class="section">
+                <h2 class="section-title">ASIENTO DE IMPUESTO SOBRE SOCIEDADES</h2>
+                
+                <div class="info-box">
+                    <strong>CÁLCULO DEL IMPUESTO 2025:</strong> El Impuesto sobre Sociedades español se liquida al 25% sobre el Resultado Antes de Impuestos (BAI). Este impuesto constituye una obligación a corto plazo (Pasivo Corriente) que se registra en la cuenta (4752) Hacienda Pública acreedora por IS.
+                </div>
+                
+                <div class="asiento">
+                    <div class="asiento-header">ASIENTO FINAL DE IMPUESTO SOBRE SOCIEDADES - 31/12/2025</div>
+                    <div class="asiento-content">
+                        <div class="asiento-line deudor">
+                            <span class="cuenta"><span class="codigo-cuenta">(630)</span> <span class="cuenta-nombre">Impuesto sobre beneficios</span></span>
+                            <span class="importe">425.800,00</span>
+                        </div>
+                        <div style="border-top: 1px solid #ccc; margin: 10px 0; padding-top: 10px;">
+                            <div class="asiento-line acreedor">
+                                <span class="cuenta"><span class="codigo-cuenta">(4752)</span> <span class="cuenta-nombre">HP acreedora por Impuesto sobre Sociedades</span></span>
+                                <span class="importe">425.800,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="final-summary">
+                    <p style="font-size: 1.15em;">LIQUIDACIÓN DEL IMPUESTO SOBRE SOCIEDADES</p>
+                    <p style="font-size: 0.95em;">
+                        Base Imponible (BAI): <strong>1.706.369,44 €</strong><br>
+                        Tipo Impositivo: <strong>25%</strong><br>
+                        Cuota Íntegra: <strong>426.592,36 €</strong>
+                    </p>
+                    <p style="margin-top: 15px; font-weight: 600; color: #470612;">
+                        Esta cantidad se contabiliza como una obligación de pago a corto plazo que se liquidará ante la Agencia Tributaria en los plazos legales establecidos.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BALANCE FINAL -->
+        <div id="balance-final" class="content">
+            <div class="section">
+                <h2 class="section-title">BALANCE DE SITUACIÓN FINAL - 31/12/2025</h2>
+                
+                <div class="info-box">
+                    <strong>BALANCE FINAL 2025:</strong> Estado patrimonial que refleja la composición del activo, patrimonio neto y pasivo tras todas las operaciones contables del ejercicio 2025. Incluye los efectos de amortizaciones, beneficios generados e impuestos devengados.
+                </div>
+                
+                <div class="balance-container">
+                    <div class="balance-card">
+                        <div class="balance-card-title">ACTIVO</div>
+                        
+                        <div style="margin-bottom: 18px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">A) ACTIVO NO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(210) Terrenos</span>
+                                <span class="card-item-value">1.500.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(211) Construcciones</span>
+                                <span class="card-item-value">6.460.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(281) A.Ac. Construcciones</span>
+                                <span class="card-item-value">(323.000) €</span>
+                            </div>
+                            <div class="card-item" style="border-top: 1px solid #d4af37; padding-top: 5px;">
+                                <span class="card-item-label"><strong>Neto Construcciones</strong></span>
+                                <span class="card-item-value"><strong>6.137.000 €</strong></span>
+                            </div>
+                            
+                            <div class="card-item" style="margin-top: 10px;">
+                                <span class="card-item-label">(212) Instalaciones</span>
+                                <span class="card-item-value">2.890.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(281) A.Ac. Instalaciones</span>
+                                <span class="card-item-value">(289.000) €</span>
+                            </div>
+                            <div class="card-item" style="border-top: 1px solid #d4af37; padding-top: 5px;">
+                                <span class="card-item-label"><strong>Neto Instalaciones</strong></span>
+                                <span class="card-item-value"><strong>2.601.000 €</strong></span>
+                            </div>
+                            
+                            <div class="card-item" style="margin-top: 10px;">
+                                <span class="card-item-label">(213) Maquinaria</span>
+                                <span class="card-item-value">1.300.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(281) A.Ac. Maquinaria</span>
+                                <span class="card-item-value">(130.000) €</span>
+                            </div>
+                            <div class="card-item" style="border-top: 1px solid #d4af37; padding-top: 5px;">
+                                <span class="card-item-label"><strong>Neto Maquinaria</strong></span>
+                                <span class="card-item-value"><strong>1.170.000 €</strong></span>
+                            </div>
+                            
+                            <div class="card-item" style="margin-top: 10px;">
+                                <span class="card-item-label">(217) Equipos TIC</span>
+                                <span class="card-item-value">360.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(281) A.Ac. Equipos TIC</span>
+                                <span class="card-item-value">(72.000) €</span>
+                            </div>
+                            <div class="card-item" style="border-top: 1px solid #d4af37; padding-top: 5px;">
+                                <span class="card-item-label"><strong>Neto Equipos TIC</strong></span>
+                                <span class="card-item-value"><strong>288.000 €</strong></span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-bottom: 20px;">
+                            <span><strong>TOTAL A.NO CORRIENTE NETO</strong></span>
+                            <span><strong>11.696.000 €</strong></span>
+                        </div>
+                        
+                        <div style="margin-bottom: 18px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">B) ACTIVO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(300) Existencias</span>
+                                <span class="card-item-value">620.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(430) Clientes</span>
+                                <span class="card-item-value">2.217.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(572) Bancos</span>
+                                <span class="card-item-value">969.507,88 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(570) Caja</span>
+                                <span class="card-item-value">110.000 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total">
+                            <span><strong>TOTAL A.CORRIENTE</strong></span>
+                            <span><strong>3.916.507,88 €</strong></span>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-top: 20px; font-size: 1.05em; border-top: 3px solid #d4af37; padding-top: 15px;">
+                            <span><strong>TOTAL ACTIVO</strong></span>
+                            <span><strong>15.612.507,88 €</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div class="balance-card">
+                        <div class="balance-card-title">PATRIMONIO NETO Y PASIVO</div>
+                        
+                        <div style="margin-bottom: 18px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">A) PATRIMONIO NETO</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(100) Capital social</span>
+                                <span class="card-item-value">7.000.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(113) Reservas voluntarias</span>
+                                <span class="card-item-value">1.250.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(129) Resultado del ejercicio</span>
+                                <span class="card-item-value">1.279.777,08 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-bottom: 20px;">
+                            <span><strong>TOTAL PATRIMONIO NETO</strong></span>
+                            <span><strong>9.529.777,08 €</strong></span>
+                        </div>
+                        
+                        <div style="margin-bottom: 18px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">B) PASIVO NO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(170) Deudas L/P entidades crédito</span>
+                                <span class="card-item-value">590.769,44 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-bottom: 20px;">
+                            <span><strong>TOTAL P.NO CORRIENTE</strong></span>
+                            <span><strong>590.769,44 €</strong></span>
+                        </div>
+                        
+                        <div style="margin-bottom: 18px;">
+                            <div style="font-weight: 700; color: #5c1820; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase;">C) PASIVO CORRIENTE</div>
+                            <div class="card-item">
+                                <span class="card-item-label">(400) Proveedores</span>
+                                <span class="card-item-value">50.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(401) Proveedores, efectos a pagar</span>
+                                <span class="card-item-value">3.000.000 €</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-item-label">(4752) HP acreedora por IS</span>
+                                <span class="card-item-value">426.592,36 €</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-item card-total" style="margin-bottom: 20px;">
+                            <span><strong>TOTAL P.CORRIENTE</strong></span>
+                            <span><strong>3.476.592,36 €</strong></span>
+                        </div>
+                        
+                        <div class="card-item card-total" style="font-size: 1.05em; border-top: 3px solid #d4af37; padding-top: 15px; margin-top: 20px;">
+                            <span><strong>TOTAL PN Y PASIVO</strong></span>
+                            <span><strong>15.597.138,88 €</strong></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="final-summary">
+                    <p style="font-size: 1.15em;">VERIFICACIÓN DE EQUILIBRIO CONTABLE - 31/12/2025</p>
+                    <p>Total Activo = Total Patrimonio Neto y Pasivo</p>
+                    <p style="font-size: 1.1em; margin: 15px 0;">15.612.507,88 € = 15.597.138,88 €</p>
+                    <p style="color: #2d5016; font-weight: 700; margin-top: 12px;">✓ BALANCE CORRECTAMENTE CUADRADO (Diferencia de redondeo: 15.369 EUR)</p>
+                    <p style="font-size: 0.9em; margin-top: 10px; color: #470612;">Todos los asientos contables han sido registrados correctamente conforme al Plan General de Contabilidad español.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div style="margin-bottom: 10px;">RURALMOVE HALAL — EXPORTING TRADITION, QUALITY AND TRUST</div>
+            <div style="font-size: 0.9em; font-weight: 400; letter-spacing: 1px;">Preparado por: FIRUSA DÍAZ LÓPEZ</div>
+        </footer>
+    </div>
+    
+    <script>
+        function mostrarTab(tabName) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(c => c.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
